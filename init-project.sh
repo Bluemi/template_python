@@ -14,6 +14,7 @@ FILES_TO_PROCESS=(
     "README.md"
     "pyproject.toml"
     "run.sh"
+		"tests/test_main.py"
 )
 
 # --- Script Logic ---
@@ -63,6 +64,10 @@ python -m venv venv
 echo ""
 echo "please run"
 echo "    . venv/bin/activate"
+
+echo "installing project and dependencies"
+./venv/bin/python -m pip install -U pip
+./venv/bin/python -m pip install -e .[dev]
 
 echo "removing this script"
 rm init-project.sh
