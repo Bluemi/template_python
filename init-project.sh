@@ -54,4 +54,17 @@ for FILE in "${FILES_TO_PROCESS[@]}"; do
     fi
 done
 
+echo "renaming ./project_name to \"$NEW_NAME\""
 git mv project_name "$NEW_NAME"
+
+# add venv
+echo "creating venv"
+python -m venv venv
+echo ""
+echo "please run"
+echo "    . venv/bin/activate"
+
+echo "removing this script"
+rm init-project.sh
+
+echo "happy coding :)"
