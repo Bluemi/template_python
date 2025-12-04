@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Initialize project
-# - replace PROJECT_NAME in pyproject.toml
+# - replace project_name in all files
 # - rename lib dir
 
 # --- Configuration ---
