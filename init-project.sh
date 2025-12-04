@@ -53,3 +53,5 @@ for FILE in "${FILES_TO_PROCESS[@]}"; do
         echo "Warning: File not found: $FILE (Skipping)"
     fi
 done
+
+git mv project_name "$NEW_NAME"
