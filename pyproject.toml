@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "PROJECT_NAME"
+name = "project_name"
 version = "0.1.0"
 description = "YOUR_DESCRIPTION."
 authors = [
@@ -15,6 +15,9 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
 ]
+
+[project.scripts]
+project_cli = "PROJECT_NAME.cli.main:main"
 
 [project.optional-dependencies]
 dev = ["pytest"]

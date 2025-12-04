@@ -6,7 +6,7 @@
 
 # --- Configuration ---
 # The string to be searched for and replaced.
-PLACEHOLDER="PROJECT_NAME"
+PLACEHOLDER="project_name"
 
 # A space-separated list of files where the replacement should occur.
 # IMPORTANT: Adjust this list to match the files in your project.

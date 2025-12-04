@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from PROJECT_NAME.main import main
+from project_name.cli.main import main
 
 
 def test_main():

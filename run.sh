@@ -3,7 +3,7 @@
 case "$1" in
 	r)
 		shift
-		python3 PROJECT_NAME/main.py "$@"
+		python3 project_name/scripts/main.py "$@"
 		;;
 	t)
 		shift

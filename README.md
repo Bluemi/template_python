@@ -1,4 +1,4 @@
-# PROJECT_NAME
+# project_name
 
 Template for python projects.
 
