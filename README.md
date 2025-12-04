@@ -1,2 +1,5 @@
-# template_python
-Template for python programs
+# PROJECT_NAME
+
+Template for python projects.
+
+Execute `init-project.sh "<your project name>"` to name everything correctly.
