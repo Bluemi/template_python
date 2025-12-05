@@ -20,7 +20,7 @@ dependencies = [
 project_cli = "project_name.cli.main:main"
 
 [project.optional-dependencies]
-dev = ["pytest"]
+dev = ["pytest", "build", "twine"]
 
 [tool.setuptools.packages.find]
 where = ["."]
