@@ -43,7 +43,6 @@ for FILE in "${FILES_TO_PROCESS[@]}"; do
         # delimiter (e.g., '|') instead of '/' to avoid issues if the
         # replacement string ($NEW_NAME) contains slashes (e.g., 'path/to/project').
         # The 'g' flag ensures all occurrences on a line are replaced (global).
-        sed -i "s|${PLACEHOLDER}|${NEW_NAME}|g" "$FILE"
 				sed -i "s|${PLACEHOLDER}.cli|${NEW_NAME_SNAKE}.cli|g; s|${PLACEHOLDER}|${NEW_NAME}|g" "$FILE"
         
         # Check if sed was successful
