@@ -28,6 +28,7 @@ fi
 
 # Store the replacement string
 NEW_NAME="$1"
+NEW_NAME_SNAKE="${NEW_NAME//-/_}"
 
 echo "Initialize project \"${NEW_NAME}\""
 
@@ -43,6 +44,7 @@ for FILE in "${FILES_TO_PROCESS[@]}"; do
         # replacement string ($NEW_NAME) contains slashes (e.g., 'path/to/project').
         # The 'g' flag ensures all occurrences on a line are replaced (global).
         sed -i "s|${PLACEHOLDER}|${NEW_NAME}|g" "$FILE"
+				sed -i "s|${PLACEHOLDER}.cli|${NEW_NAME_SNAKE}.cli|g; s|${PLACEHOLDER}|${NEW_NAME}|g" "$FILE"
         
         # Check if sed was successful
         if [ $? -eq 0 ]; then
