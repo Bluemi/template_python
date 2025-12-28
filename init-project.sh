@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -e
-set -x
 
 # Initialize project
 # - replace project_name in all files
@@ -23,14 +22,14 @@ FILES_TO_PROCESS=(
 # --- Script Logic ---
 
 # Check if the replacement argument is provided
-if [ -z "$1" ]; then
-    echo "Error: Missing replacement string." >&2
-    echo "Usage: $0 <new_project_name>" >&2
-    exit 1
+if [ -n "$1" ]; then
+    NEW_NAME="$1"
+else
+    NEW_NAME=$(basename "$PWD")
 fi
+echo "project name: \"$NEW_NAME\""
 
 # Store the replacement string
-NEW_NAME="$1"
 NEW_NAME_SNAKE="${NEW_NAME//-/_}"
 
 echo "Initialize project \"${NEW_NAME}\""
@@ -46,7 +45,11 @@ for FILE in "${FILES_TO_PROCESS[@]}"; do
         # delimiter (e.g., '|') instead of '/' to avoid issues if the
         # replacement string ($NEW_NAME) contains slashes (e.g., 'path/to/project').
         # The 'g' flag ensures all occurrences on a line are replaced (global).
-				sed -i "s|${PLACEHOLDER}.cli|${NEW_NAME_SNAKE}.cli|g; s|${PLACEHOLDER}|${NEW_NAME}|g" "$FILE"
+        if [ "$FILE" = "pyproject.toml" ]; then
+            sed -i "s|${PLACEHOLDER}.cli|${NEW_NAME_SNAKE}.cli|g; s|${PLACEHOLDER}|${NEW_NAME}|g" "$FILE"
+        else
+            sed -i "s|${PLACEHOLDER}|${NEW_NAME}|g" "$FILE"
+        fi
         
         # Check if sed was successful
         if [ $? -eq 0 ]; then
