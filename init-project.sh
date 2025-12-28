@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+set -x
+
 # Initialize project
 # - replace project_name in all files
 # - rename lib dir
