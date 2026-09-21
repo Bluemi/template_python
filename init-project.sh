@@ -67,14 +67,14 @@ git mv project_name "$NEW_NAME"
 
 # add venv
 echo "creating venv"
-python -m venv venv
+uv venv
 echo ""
 echo "please run"
-echo "    . venv/bin/activate"
+echo "    . .venv/bin/activate"
 
 echo "installing project and dependencies"
-./venv/bin/python -m pip install -U pip
-./venv/bin/python -m pip install -e .[dev]
+./.venv/bin/python -m pip install -U pip
+./.venv/bin/python -m pip install -e .[dev]
 
 echo "removing this script"
 rm init-project.sh
